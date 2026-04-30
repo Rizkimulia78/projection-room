@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Rizki Mulia Projection Room</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .about-header {
+      display: flex;
+      gap: 2.5rem;
+      align-items: flex-start;
+      margin-bottom: 2.5rem;
+    }
+
+    .about-photo {
+      width: 180px;
+      flex-shrink: 0;
+    }
+
+    .about-photo img {
+      width: 180px;
+      height: 240px;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+    }
+
+    .about-intro { flex: 1; min-width: 0; padding-top: 0.25rem; }
+    .about-intro h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+    .about-intro .tagline {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 520px) {
+      .about-header { flex-direction: column; gap: 1.5rem; }
+      .about-photo, .about-photo img, .about-photo-placeholder { width: 120px; height: 120px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="site-logo">
+        <span class="name">Rizki Mulia</span>
+        <span class="subtitle">Projection Room</span>
+      </a>
+      <nav>
+        <a href="index.html">Reviews</a>
+        <a href="about.html" class="active">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="review-page">
+
+    <p class="hero-label" style="margin-bottom: 1.5rem;">About</p>
+
+    <!-- ── Photo + Name ── -->
+    <div class="about-header">
+
+      <div class="about-photo">
+        <img src="About me.jpg" alt="Rizki Mulia" />
+      </div>
+
+      <div class="about-intro">
+        <h1>Rizki Mulia</h1>
+        <p class="tagline">
+          Reader. Watcher. Paying attention.
+        </p>
+      </div>
+    </div>
+
+    <!-- ── Bio ── -->
+    <div class="review-body" style="max-width: 620px;">
+
+      <p>
+        Some of my earliest memories are tied to books. I don't remember specific titles from kindergarten, but I remember the feeling. Sitting still while my mind went somewhere else. Even then, reading felt less like a hobby and more like a doorway. I didn't know how to explain it, only that words could carry weight far beyond the page.
+      </p>
+
+      <p>
+        As I grew older, I didn't gravitate toward easy or comforting books. I was drawn to writers like Fyodor Dostoevsky. His work doesn't offer neat lessons or optimism wrapped in clean sentences. It deals with doubt, guilt, faith, cruelty, compassion, and the contradictions inside people. Reading him forced me to slow down and sit with discomfort. It taught me that understanding people is harder than judging them, and far more important.
+      </p>
+
+      <p>
+        Reading wasn't the only thing that shaped how I pay attention to the world.
+      </p>
+
+      <p>
+        I've loved football since I was seven years old, and I've supported Manchester United for as long as I can remember. The beginning was almost stupidly simple. I liked the color red. That was enough. But curiosity followed attachment. I started learning the club's history. How it was built. Who built it. Why it became what many consider the biggest club in the world. Over time, supporting a team became less about winning and more about continuity, identity, and loyalty across generations. Meaning doesn't always start deep. Sometimes it grows because you stay.
+      </p>
+
+      <p>
+        In my spare time, I listen to podcasts. I started with Indonesian podcasts like Podcast Awal Minggu and Hidup Lah Indonesia Maya, mostly because my English wasn't good enough yet. As my listening improved, my curiosity widened. I began following long conversations with people like Joe Rogan, Yuval Noah Harari, Sam Harris, Alex O'Connor, and Richard Dawkins. These podcasts trained me to sit with disagreement and complexity. The only Indonesian podcast I still listen to consistently is Podquest when they upload. Listening taught me something reading can't always do: how ideas sound when people are thinking out loud, not polishing their conclusions.
+      </p>
+
+      <p>
+        Movies and TV shows also changed how I see things. Friends taught me that being smart in one area doesn't stop you from making endless bad decisions in others. Game of Thrones showed me that almost every part of life is political, whether it's a kingdom or a business deal. Inglourious Basterds made me uncomfortable in a good way. It showed how doing something morally wrong rarely feels wrong from the inside. Stories don't give answers. They sharpen awareness.
+      </p>
+
+      <p>
+        Music has been there in the background of all of this. I started with Indonesian songs, then moved into English-language music. I never followed genres on purpose. For a long time, I didn't even know what a genre was. Along the way, I found myself listening to jazz artists like Ella Fitzgerald, Louis Armstrong, and Frank Sinatra, as well as classical and British music. I still don't always know how to categorize what I like, and I think that's fine. Learning doesn't require labels first.
+      </p>
+
+      <hr class="review-divider" />
+
+      <p>
+        I read because I believe books can change the world. Not loudly. Not overnight. Books change the world quietly. They change how someone thinks when no one is watching. They shape conscience, patience, and moral imagination. They make people hesitate before turning others into simple stories.
+      </p>
+
+      <p>
+        I'm still unsure how all of this translates into action. I don't know exactly what role I'll play or what form that change will take. What I do know is that before societies shift, individuals do. And before individuals change their behavior, something changes in how they think.
+      </p>
+
+      <p>
+        I don't read to escape the world. I read to understand it better. I'm still learning. Still unsure. Still paying attention. And I trust that paying attention deeply and honestly is not a wasted effort. Every lasting change begins there, quietly, long before it becomes visible.
+      </p>
+
+    </div>
+
+  </main>
+
+  <footer>
+    <p>© 2026 <strong>Rizki Mulia Projection Room</strong> — All reviews are personal opinions.</p>
+  </footer>
+
+</body>
+</html>

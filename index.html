@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rizki Mulia — Projection Room</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Header ── -->
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="site-logo">
+        <span class="name">Rizki Mulia</span>
+        <span class="subtitle">Projection Room</span>
+      </a>
+      <nav>
+        <a href="index.html" class="active">Reviews</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── Hero ── -->
+  <section class="hero">
+    <p class="hero-label">Personal Film Journal</p>
+    <h1>Cinema, Honestly Reviewed.</h1>
+    <p>Every film and series I've watched — with thoughts worth writing down.</p>
+  </section>
+
+  <!-- ── Filter + Search ── -->
+  <div class="filter-bar">
+    <span>Show</span>
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="movie">Movies</button>
+    <button class="filter-btn" data-filter="tv">TV Shows</button>
+    <div class="search-wrap">
+      <input type="text" id="search-input" class="search-input" placeholder="Search titles…" autocomplete="off" />
+    </div>
+  </div>
+
+  <!-- ── Reviews Grid ── -->
+  <section class="grid-section">
+    <div class="reviews-grid">
+
+      <!-- Severance -->
+      <a href="shows/severance.html" class="card" data-category="tv">
+        <img class="card-poster" src="images/posters/severance.jpg" alt="Severance poster" />
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-tag tv">TV Show</span>
+            <span class="card-year">2022</span>
+          </div>
+          <h2 class="card-title">Severance</h2>
+          <p class="card-genre">Sci-Fi · Thriller · Drama</p>
+          <p class="card-excerpt">
+            Not just a story about work-life balance. A story about what happens when comfort becomes confinement.
+          </p>
+          <span class="card-read-more">Read Review →</span>
+        </div>
+      </a>
+
+      <!-- Money Heist -->
+      <a href="shows/money-heist.html" class="card" data-category="tv">
+        <img class="card-poster" src="images/posters/money-heist.jpg" alt="Money Heist poster" />
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-tag tv">TV Show</span>
+            <span class="card-year">2017</span>
+          </div>
+          <h2 class="card-title">Money Heist</h2>
+          <p class="card-genre">Crime · Heist · Thriller</p>
+          <p class="card-excerpt">
+            A resistance story with a Robin Hood vibe — but what really makes it work is motivation, not the heist itself.
+          </p>
+          <span class="card-read-more">Read Review →</span>
+        </div>
+      </a>
+
+      <!-- Succession -->
+      <a href="shows/succession.html" class="card" data-category="tv">
+        <img class="card-poster" src="images/posters/succession.jpg" alt="Succession poster" />
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-tag tv">TV Show</span>
+            <span class="card-year">2018</span>
+          </div>
+          <h2 class="card-title">Succession</h2>
+          <p class="card-genre">Drama · Satire</p>
+          <p class="card-excerpt">
+            It doesn't ask us to admire these people or hate them. It asks us to recognize them.
+          </p>
+          <span class="card-read-more">Read Review →</span>
+        </div>
+      </a>
+
+      <!-- Better Call Saul -->
+      <a href="shows/better-call-saul.html" class="card" data-category="tv">
+        <img class="card-poster" src="images/posters/better-call-saul.jpg" alt="Better Call Saul poster" />
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-tag tv">TV Show</span>
+            <span class="card-year">2015</span>
+          </div>
+          <h2 class="card-title">Better Call Saul</h2>
+          <p class="card-genre">Drama · Crime</p>
+          <p class="card-excerpt">
+            Hit me harder than Breaking Bad — not because it's louder or more shocking, but because it's quieter.
+          </p>
+          <span class="card-read-more">Read Review →</span>
+        </div>
+      </a>
+
+      <!-- Game of Thrones -->
+      <a href="shows/game-of-thrones.html" class="card" data-category="tv">
+        <img class="card-poster" src="images/posters/game-of-thrones.jpg" alt="Game of Thrones poster" />
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-tag tv">TV Show</span>
+            <span class="card-year">2011</span>
+          </div>
+          <h2 class="card-title">Game of Thrones</h2>
+          <p class="card-genre">Fantasy · Drama</p>
+          <p class="card-excerpt">
+            The show that taught me how to commit to long-form storytelling — and that discomfort is not a flaw. It is the point.
+          </p>
+          <span class="card-read-more">Read Review →</span>
+        </div>
+      </a>
+
+      <!-- Friends -->
+      <a href="shows/friends.html" class="card" data-category="tv">
+        <img class="card-poster" src="images/posters/friends.jpg" alt="Friends poster" />
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-tag tv">TV Show</span>
+            <span class="card-year">1994</span>
+          </div>
+          <h2 class="card-title">Friends</h2>
+          <p class="card-genre">Comedy · Sitcom</p>
+          <p class="card-excerpt">
+            It doesn't challenge you, and that's exactly the point. Background noise that occasionally lands a punchline — and somehow, that's comforting.
+          </p>
+          <span class="card-read-more">Read Review →</span>
+        </div>
+      </a>
+
+      <!-- Dark -->
+      <a href="shows/dark.html" class="card" data-category="tv">
+        <img class="card-poster" src="images/posters/dark.jpg" alt="Dark poster" />
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-tag tv">TV Show</span>
+            <span class="card-year">2017</span>
+          </div>
+          <h2 class="card-title">Dark</h2>
+          <p class="card-genre">Sci-Fi · Mystery · Thriller</p>
+          <p class="card-excerpt">
+            Time travel that refuses to be entertaining first and understandable second. Every detail becomes a cause for something later.
+          </p>
+          <span class="card-read-more">Read Review →</span>
+        </div>
+      </a>
+
+      <!-- ═══════════════════════════════════════════════════
+           ADD NEW REVIEW CARDS ABOVE THIS LINE
+           ─────────────────────────────────────────────────── -->
+
+      <div class="empty-state" style="display:none;">
+        No reviews in this category yet.
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 <strong>Rizki Mulia Projection Room</strong> — All reviews are personal opinions.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
