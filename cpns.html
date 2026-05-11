@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CPNS Mental Model — Rizki Mulia</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Page layout ── */
+    .cpns-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+    }
+
+    .cpns-hero {
+      margin-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2rem;
+    }
+    .cpns-hero .label {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+    .cpns-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+    .cpns-hero p {
+      color: var(--text-muted);
+      max-width: 600px;
+    }
+
+    /* ── Section titles ── */
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── Overview cards (SKD breakdown) ── */
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 3rem;
+    }
+    .overview-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+    .overview-card .test-tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 0.85rem;
+    }
+    .tag-twk  { background: #2a3e1a; color: #c8e6b0; }
+    .tag-tiu  { background: #1a2a3e; color: #a8c8f0; }
+    .tag-tkp  { background: #3e2a1a; color: #f0d4a8; }
+
+    .overview-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      margin-bottom: 0.3rem;
+    }
+    .overview-card .subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      padding: 0.3rem 0;
+      border-top: 1px solid var(--border);
+    }
+    .stat-row .stat-label { color: var(--text-muted); }
+    .stat-row .stat-value { font-weight: 500; color: var(--gold); }
+
+    /* ── Topic list ── */
+    .topics-section { margin-bottom: 3rem; }
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+    .topic-block {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+    }
+    .topic-block h4 {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+    .topic-block ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .topic-block ul li {
+      font-size: 0.88rem;
+      padding-left: 1rem;
+      position: relative;
+      color: var(--text-primary);
+    }
+    .topic-block ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      top: 3px;
+    }
+
+    /* ── 4-week timeline ── */
+    .timeline-section { margin-bottom: 3rem; }
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .week-row {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 1.25rem;
+      align-items: start;
+    }
+    .week-label {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.6rem 0.8rem;
+      text-align: center;
+    }
+    .week-label .week-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold);
+      display: block;
+    }
+    .week-label .week-name {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+    .week-content {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+    }
+    .week-content h4 {
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+    }
+    .week-content p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .week-focus {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.6rem;
+    }
+    .focus-chip {
+      font-size: 0.68rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+
+    /* ── Strategy ── */
+    .strategy-section { margin-bottom: 3rem; }
+    .strategy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .strategy-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+    }
+    .strategy-card .icon {
+      font-size: 1.4rem;
+      margin-bottom: 0.6rem;
+    }
+    .strategy-card h4 {
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+    }
+    .strategy-card p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── Score target bar ── */
+    .score-section { margin-bottom: 3rem; }
+    .score-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .score-bar-row { display: flex; flex-direction: column; gap: 0.35rem; }
+    .score-bar-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.82rem;
+    }
+    .score-bar-header .bar-label { font-weight: 500; }
+    .score-bar-header .bar-range { color: var(--text-muted); }
+    .bar-track {
+      height: 8px;
+      background: var(--bg-card);
+      border-radius: 99px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 99px;
+      background: var(--gold);
+    }
+    .bar-threshold {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    /* ── Footer note ── */
+    .cpns-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+      margin-top: 1.5rem;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Header ── -->
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="site-logo">
+        <span class="name">Rizki Mulia</span>
+        <span class="subtitle">Projection Room</span>
+      </a>
+      <nav>
+        <a href="index.html">Reviews</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="cpns-container">
+
+    <!-- ── Hero ── -->
+    <div class="cpns-hero">
+      <p class="label">Mental Model · Persiapan</p>
+      <h1>CPNS 2025 — Mental Model</h1>
+      <p>Kerangka berpikir dan rencana belajar selama satu bulan menuju SKD CPNS. Fokus pada struktur tes, target nilai, dan prioritas topik.</p>
+    </div>
+
+    <!-- ── SKD Overview ── -->
+    <h2 class="section-title">Struktur SKD</h2>
+    <div class="overview-grid">
+      <div class="overview-card">
+        <span class="test-tag tag-twk">TWK</span>
+        <h3>Tes Wawasan Kebangsaan</h3>
+        <p class="subtitle">Kebangsaan & ideologi negara</p>
+        <div class="stat-row"><span class="stat-label">Jumlah soal</span><span class="stat-value">30 soal</span></div>
+        <div class="stat-row"><span class="stat-label">Nilai per soal</span><span class="stat-value">5 poin</span></div>
+        <div class="stat-row"><span class="stat-label">Nilai maks</span><span class="stat-value">150</span></div>
+        <div class="stat-row"><span class="stat-label">Passing grade</span><span class="stat-value">65</span></div>
+      </div>
+      <div class="overview-card">
+        <span class="test-tag tag-tiu">TIU</span>
+        <h3>Tes Intelegensia Umum</h3>
+        <p class="subtitle">Verbal, numerik, figural</p>
+        <div class="stat-row"><span class="stat-label">Jumlah soal</span><span class="stat-value">35 soal</span></div>
+        <div class="stat-row"><span class="stat-label">Nilai per soal</span><span class="stat-value">5 poin</span></div>
+        <div class="stat-row"><span class="stat-label">Nilai maks</span><span class="stat-value">175</span></div>
+        <div class="stat-row"><span class="stat-label">Passing grade</span><span class="stat-value">80</span></div>
+      </div>
+      <div class="overview-card">
+        <span class="test-tag tag-tkp">TKP</span>
+        <h3>Tes Karakteristik Pribadi</h3>
+        <p class="subtitle">Sikap & kepribadian kerja</p>
+        <div class="stat-row"><span class="stat-label">Jumlah soal</span><span class="stat-value">45 soal</span></div>
+        <div class="stat-row"><span class="stat-label">Nilai per soal</span><span class="stat-value">1–5 poin</span></div>
+        <div class="stat-row"><span class="stat-label">Nilai maks</span><span class="stat-value">225</span></div>
+        <div class="stat-row"><span class="stat-label">Passing grade</span><span class="stat-value">166</span></div>
+      </div>
+    </div>
+
+    <!-- ── Score Target ── -->
+    <h2 class="section-title">Target Nilai</h2>
+    <div class="score-section">
+      <div class="score-bars">
+        <div class="score-bar-row">
+          <div class="score-bar-header">
+            <span class="bar-label">TWK</span>
+            <span class="bar-range">Target: 110 / 150</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width: 73%"></div></div>
+          <span class="bar-threshold">Passing grade: 65</span>
+        </div>
+        <div class="score-bar-row">
+          <div class="score-bar-header">
+            <span class="bar-label">TIU</span>
+            <span class="bar-range">Target: 125 / 175</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width: 71%"></div></div>
+          <span class="bar-threshold">Passing grade: 80</span>
+        </div>
+        <div class="score-bar-row">
+          <div class="score-bar-header">
+            <span class="bar-label">TKP</span>
+            <span class="bar-range">Target: 195 / 225</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width: 87%"></div></div>
+          <span class="bar-threshold">Passing grade: 166</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Topics ── -->
+    <h2 class="section-title">Topik Kunci per Subtes</h2>
+    <div class="topics-section">
+      <div class="topics-grid">
+        <div class="topic-block">
+          <h4>TWK</h4>
+          <ul>
+            <li>Pancasila — sila & makna</li>
+            <li>UUD 1945 — pasal penting</li>
+            <li>Sejarah NKRI & proklamasi</li>
+            <li>Bhinneka Tunggal Ika</li>
+            <li>Sistem pemerintahan RI</li>
+            <li>Wawasan Nusantara</li>
+          </ul>
+        </div>
+        <div class="topic-block">
+          <h4>TIU — Verbal</h4>
+          <ul>
+            <li>Sinonim & antonim</li>
+            <li>Analogi kata</li>
+            <li>Penalaran verbal</li>
+            <li>Pemahaman bacaan</li>
+          </ul>
+        </div>
+        <div class="topic-block">
+          <h4>TIU — Numerik & Figural</h4>
+          <ul>
+            <li>Deret angka & pola</li>
+            <li>Operasi hitung cepat</li>
+            <li>Perbandingan kuantitatif</li>
+            <li>Analogi & serial figural</li>
+            <li>Ketidaksamaan figural</li>
+          </ul>
+        </div>
+        <div class="topic-block">
+          <h4>TKP</h4>
+          <ul>
+            <li>Pelayanan publik</li>
+            <li>Jejaring kerja & kolaborasi</li>
+            <li>Sosial budaya</li>
+            <li>Teknologi informasi</li>
+            <li>Profesionalisme & integritas</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 4-Week Timeline ── -->
+    <h2 class="section-title">Rencana Belajar 4 Minggu</h2>
+    <div class="timeline-section">
+      <div class="timeline">
+        <div class="week-row">
+          <div class="week-label">
+            <span class="week-num">Week 1</span>
+            <span class="week-name">Fondasi</span>
+          </div>
+          <div class="week-content">
+            <h4>Pemetaan & Materi Dasar</h4>
+            <p>Kerjakan try-out awal untuk tahu titik lemah. Pelajari materi dasar TWK: Pancasila, UUD 1945, dan sejarah kemerdekaan. Review konsep TIU verbal dari awal.</p>
+            <div class="week-focus">
+              <span class="focus-chip">Try-out diagnostik</span>
+              <span class="focus-chip">TWK dasar</span>
+              <span class="focus-chip">TIU verbal</span>
+            </div>
+          </div>
+        </div>
+        <div class="week-row">
+          <div class="week-label">
+            <span class="week-num">Week 2</span>
+            <span class="week-name">Penguatan</span>
+          </div>
+          <div class="week-content">
+            <h4>Numerik, Figural & TWK Lanjutan</h4>
+            <p>Fokus ke TIU numerik (deret angka, berhitung cepat) dan figural. Selesaikan sisa materi TWK: sistem pemerintahan, Wawasan Nusantara. Mulai latihan TKP dengan strategi pilihan skor tertinggi.</p>
+            <div class="week-focus">
+              <span class="focus-chip">TIU numerik</span>
+              <span class="focus-chip">TIU figural</span>
+              <span class="focus-chip">TWK lanjutan</span>
+              <span class="focus-chip">TKP intro</span>
+            </div>
+          </div>
+        </div>
+        <div class="week-row">
+          <div class="week-label">
+            <span class="week-num">Week 3</span>
+            <span class="week-name">Drill</span>
+          </div>
+          <div class="week-content">
+            <h4>Latihan Soal Intensif</h4>
+            <p>Kerjakan soal-soal tahun sebelumnya (2019–2024). Target: 2 paket soal per hari. Catat pola kesalahan dan ulangi topik yang lemah. Simulasikan kondisi tes: 110 soal dalam 100 menit.</p>
+            <div class="week-focus">
+              <span class="focus-chip">Soal tahun lalu</span>
+              <span class="focus-chip">Simulasi waktu</span>
+              <span class="focus-chip">Analisis kesalahan</span>
+            </div>
+          </div>
+        </div>
+        <div class="week-row">
+          <div class="week-label">
+            <span class="week-num">Week 4</span>
+            <span class="week-name">Finalisasi</span>
+          </div>
+          <div class="week-content">
+            <h4>Simulasi Full & Review Akhir</h4>
+            <p>Dua simulasi full SKD per minggu dengan kondisi persis seperti tes. Tiga hari terakhir: review catatan saja, tanpa materi baru. Jaga tidur dan kondisi fisik menjelang hari-H.</p>
+            <div class="week-focus">
+              <span class="focus-chip">Full simulasi</span>
+              <span class="focus-chip">Review catatan</span>
+              <span class="focus-chip">Persiapan fisik</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Strategy ── -->
+    <h2 class="section-title">Strategi Kunci</h2>
+    <div class="strategy-section">
+      <div class="strategy-grid">
+        <div class="strategy-card">
+          <div class="icon">⏱</div>
+          <h4>Manajemen Waktu</h4>
+          <p>100 menit untuk 110 soal = ~55 detik per soal. Tandai soal sulit dan lewati — kembali di akhir. Jangan terjebak satu soal lebih dari 90 detik.</p>
+        </div>
+        <div class="strategy-card">
+          <div class="icon">📈</div>
+          <h4>Prioritas TKP</h4>
+          <p>TKP memiliki passing grade tertinggi (166/225). Selalu pilih jawaban yang mencerminkan pelayanan publik terbaik dan profesionalisme — bukan jawaban personal.</p>
+        </div>
+        <div class="strategy-card">
+          <div class="icon">🔁</div>
+          <h4>Repetisi Aktif</h4>
+          <p>Jangan hanya baca — kerjakan soal setiap hari. Otak menyimpan lebih baik melalui latihan aktif dibanding membaca pasif. Minimal 30 soal per sesi.</p>
+        </div>
+        <div class="strategy-card">
+          <div class="icon">📊</div>
+          <h4>Lacak Progress</h4>
+          <p>Catat skor per subtes setiap try-out. Jika TIU masih di bawah 100, prioritaskan numerik & figural — keduanya paling bisa ditingkatkan dengan latihan.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="cpns-note">
+      Catatan: Passing grade mengacu pada peraturan BKN terbaru. Selalu cek pengumuman resmi SSCASN untuk formasi dan jadwal tes spesifik. Mental model ini adalah kerangka kerja — sesuaikan dengan titik lemah masing-masing setelah try-out diagnostik awal.
+    </p>
+
+  </div>
+
+</body>
+</html>
